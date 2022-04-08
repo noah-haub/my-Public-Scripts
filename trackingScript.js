@@ -24,24 +24,6 @@ window.addEventListener("focus", focus);
 window.addEventListener("blur", blur);
 window.addEventListener("beforeunload", beforeUnload);
 
-// Adding scripts
-let cryptoJSScript = document.createElement("script");
-cryptoJSScript.src = "https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js";
-cryptoJSScript.integrity = "sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==";
-cryptoJSScript.crossOrigin = "anonymous";
-cryptoJSScript.referrerPolicy = "no-referrer";
-document.head.appendChild(cryptoJSScript);
-
-let clientJSScript = document.createElement("script");
-clientJSScript.src = "https://cdnjs.cloudflare.com/ajax/libs/ClientJS/0.1.11/client.min.js";
-clientJSScript.type = "text/javascript";
-document.head.appendChild(clientJSScript);
-
-let axiosScript = document.createElement("script");
-axiosScript.src = "https://unpkg.com/axios/dist/axios.min.js";
-document.head.appendChild(axiosScript);
-
-
 const hasBeenTracked = "TROASISTRA";
 
 if (sessionStorage.getItem(hasBeenTracked) === null) {
@@ -58,6 +40,22 @@ if (sessionStorage.getItem(hasBeenTracked) === null) {
 
     if (sessionStorage.getItem(troasisDeviceIdSessionStorageKey) === null) {
         // Visitor has not been tracked yet this session
+        // Adding scripts
+        let cryptoJSScript = document.createElement("script");
+        cryptoJSScript.src = "https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js";
+        cryptoJSScript.integrity = "sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==";
+        cryptoJSScript.crossOrigin = "anonymous";
+        cryptoJSScript.referrerPolicy = "no-referrer";
+        document.head.appendChild(cryptoJSScript);
+
+        let clientJSScript = document.createElement("script");
+        clientJSScript.src = "https://cdnjs.cloudflare.com/ajax/libs/ClientJS/0.1.11/client.min.js";
+        clientJSScript.type = "text/javascript";
+        document.head.appendChild(clientJSScript);
+
+        let axiosScript = document.createElement("script");
+        axiosScript.src = "https://unpkg.com/axios/dist/axios.min.js";
+        document.head.appendChild(axiosScript);
 
         // GET IP ADRESS, DEVICE ID, BROWSER INFORMATION AND CREATE UNIQUE ID BASED ON THAT
         let getIpScript = document.createElement("script");
